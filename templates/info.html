@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+    <p>
+        <a href="{{ url_for('add') }}">Add user</a>
+        <a href="{{ url_for('index') }}">Back</a>
+    </p>
+    {% for user_ in users %}
+        <p>
+            {{ user_.id }}
+            {{ user_.username }}
+            {{ user_.email }}
+            {{ user_.role_name }}
+            <a href="{{ url_for('update', user_id=user_.id) }}">Update</a>
+            <a href="{{ url_for('delete', user_id=user_.id) }}">Delete</a>
+        </p>
+    {% endfor %}
+</body>
+</html>
